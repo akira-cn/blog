@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>我的博客</title>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+    html {
+      height: 100%;
+    }
+    body {
+      min-height: 100%;
+      display: flex;
+      /* font-family: "Helvetica Neue",Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei"; */
+    }
+    a {
+      text-decoration: none;
+    }
+    #main {
+      order: 1;
+      padding: 0 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    section {
+      flex-grow: 1;
+      padding-bottom: 30px;
+    }
+    section h2 {
+      font-size: 2rem;
+      font-weight: normal;
+    }
+    section p {
+      line-height: 180%;
+    }
+    article {
+      position: relative;
+      padding-bottom: 30px;
+      border-bottom: solid 1px #ccc;
+    }
+    article a {
+      color: #333;
+    }
+    .pubtime {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    footer {
+      text-align: center;
+      line-height: 60px;
+      border-top: solid 1px #ccc;
+    }
+    #sidebar {
+      flex-shrink: 0;
+      width: 230px;
+      background-color: #222;
+      color: #999;
+    }
+    #sidebar a {
+      color: #999;
+    }
+    #profile {
+      text-align: center;
+      padding-top: 40px;
+    }
+    #profile h1 {
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+    #avatar img {
+      width: 150px;
+    }
+    #navigator {
+      padding-left: 40px;
+      line-height: 30px;      
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <!--文章区-->
+    <section>
+      <article>
+        <h2><a href="articles/01.html">我的第一篇文章</a></h2>
+        <p>正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要</p>
+        <div class="pubtime">发布时间：<em>2018-12-08</em></div>
+        <div class="readmore"><a href="articles/01.html">阅读全文</a></div>
+      </article>
+      <article>
+        <h2><a href="articles/02.html">我的第二篇文章</a></h2>
+        <p>正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要</p>
+        <div class="pubtime">发布时间：<em>2018-12-08</em></div>
+        <div class="readmore"><a href="articles/01.html">阅读全文</a></div>
+      </article>
+      <article>
+        <h2><a href="articles/03.html">我的第三篇文章</a></h2>
+        <p>正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要正文摘要</p>
+        <div class="pubtime">发布时间：<em>2018-12-08</em></div>
+        <div class="readmore"><a href="articles/01.html">阅读全文</a></div>
+      </article>
+    </section>
+    <!--列表区-->
+    <footer>
+      &copy;2018 - 我的博客 - 君喻学堂
+    </footer>
+  </div>
+  <div id="sidebar">
+    <div id="profile">
+      <div id="avatar">
+        <a href="about.html"><img src="static/image/myavatar.png"></a>
+      </div>
+      <h1>我的博客</h1>
+    </div>
+    <div id="navigator">
+      <div><a href="index.html">首页</a></div>
+      <div><a href="friend.html">友链</a></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    const pubtimeEls = document.querySelectorAll('.pubtime em');
+    pubtimeEls.forEach((el) => {
+      const date = new Date(el.innerHTML);
+      el.innerHTML = `${date.getMonth() + 1}月${date.getDate()}日, ${date.getFullYear()}`;
+    });
+
+    let title = document.title;
+    window.addEventListener('blur', () => {
+      document.title = '记得回来看我啊~';
+    });
+    window.addEventListener('focus', () => {
+      document.title = title;
+    });
+  </script>
+</body>
+</html>
